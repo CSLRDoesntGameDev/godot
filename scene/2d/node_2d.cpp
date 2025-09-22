@@ -355,6 +355,14 @@ Size2 Node2D::get_global_scale() const {
 	return get_global_transform().get_scale();
 }
 
+real_t Node2D::get_distance_to(Node2D *target) const {
+	return (get_global_position().distance_to(target->get_global_position()));
+}
+
+real_t Node2D::get_distance_squared_to(Node2D *target) const {
+	return (get_global_position().distance_squared_to(target->get_global_position()));
+}
+
 void Node2D::set_global_scale(const Size2 &p_scale) {
 	ERR_THREAD_GUARD;
 	CanvasItem *parent = get_parent_item();
@@ -483,6 +491,9 @@ void Node2D::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_global_skew"), &Node2D::get_global_skew);
 	ClassDB::bind_method(D_METHOD("set_global_scale", "scale"), &Node2D::set_global_scale);
 	ClassDB::bind_method(D_METHOD("get_global_scale"), &Node2D::get_global_scale);
+
+	ClassDB::bind_method(D_METHOD("get_distance_to", "target"), &Node2D::get_distance_to);
+	ClassDB::bind_method(D_METHOD("get_distance_squared_to", "target"), &Node2D::get_distance_squared_to);
 
 	ClassDB::bind_method(D_METHOD("set_transform", "xform"), &Node2D::set_transform);
 	ClassDB::bind_method(D_METHOD("set_global_transform", "xform"), &Node2D::set_global_transform);

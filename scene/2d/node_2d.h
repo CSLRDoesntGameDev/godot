@@ -99,6 +99,8 @@ public:
 	real_t get_global_rotation_degrees() const;
 	real_t get_global_skew() const;
 	Size2 get_global_scale() const;
+	real_t get_distance_to(Node2D *target) const;
+	real_t get_distance_squared_to(Node2D *target) const;
 
 	void set_transform(const Transform2D &p_transform);
 	void set_global_transform(const Transform2D &p_transform);
