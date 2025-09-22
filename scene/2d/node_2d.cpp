@@ -209,6 +209,10 @@ Point2 Node2D::get_position() const {
 	return position;
 }
 
+real_t Node2D::get_distance_to(Node2D *p_target) const {
+	return get_global_transform().get_origin().distance_to(p_target->get_global_transform().get_origin());
+}
+
 real_t Node2D::get_rotation() const {
 	ERR_READ_THREAD_GUARD_V(0);
 	if (_is_xform_dirty()) {
@@ -461,6 +465,7 @@ void Node2D::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("set_scale", "scale"), &Node2D::set_scale);
 
 	ClassDB::bind_method(D_METHOD("get_position"), &Node2D::get_position);
+	ClassDB::bind_method(D_METHOD("get_distance_to", "target"), &Node2D::get_distance_to);
 	ClassDB::bind_method(D_METHOD("get_rotation"), &Node2D::get_rotation);
 	ClassDB::bind_method(D_METHOD("get_rotation_degrees"), &Node2D::get_rotation_degrees);
 	ClassDB::bind_method(D_METHOD("get_skew"), &Node2D::get_skew);

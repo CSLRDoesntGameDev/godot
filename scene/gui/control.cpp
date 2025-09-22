@@ -1464,6 +1464,10 @@ Point2 Control::get_global_position() const {
 	return get_global_transform().get_origin();
 }
 
+real_t Control::get_distance_to(Control *p_target) const {
+	return get_global_transform().get_origin().distance_to(p_target->get_global_transform().get_origin());
+}
+
 Point2 Control::get_screen_position() const {
 	ERR_READ_THREAD_GUARD_V(Point2());
 	ERR_FAIL_COND_V(!is_inside_tree(), Point2());
@@ -3684,7 +3688,6 @@ void Control::_accessibility_action_scroll_into_view(const Variant &p_data) {
 		sc->ensure_control_visible(this);
 	}
 }
-
 void Control::_notification(int p_notification) {
 	ERR_MAIN_THREAD_GUARD;
 	switch (p_notification) {
@@ -4005,6 +4008,7 @@ void Control::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_screen_position"), &Control::get_screen_position);
 	ClassDB::bind_method(D_METHOD("get_rect"), &Control::get_rect);
 	ClassDB::bind_method(D_METHOD("get_global_rect"), &Control::get_global_rect);
+	ClassDB::bind_method(D_METHOD("get_distance_to", "target"), &Control::get_distance_to);
 	ClassDB::bind_method(D_METHOD("set_focus_mode", "mode"), &Control::set_focus_mode);
 	ClassDB::bind_method(D_METHOD("get_focus_mode"), &Control::get_focus_mode);
 	ClassDB::bind_method(D_METHOD("get_focus_mode_with_override"), &Control::get_focus_mode_with_override);

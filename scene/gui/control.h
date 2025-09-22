@@ -509,6 +509,7 @@ public:
 	void set_position(const Point2 &p_point, bool p_keep_offsets = false);
 	void set_global_position(const Point2 &p_point, bool p_keep_offsets = false);
 	Point2 get_position() const;
+	real_t get_distance_to(Control *p_target) const;
 	Point2 get_global_position() const;
 	Point2 get_screen_position() const;
 

@@ -253,6 +253,7 @@ public:
 	void set_global_rotation_degrees(const Vector3 &p_euler_degrees);
 
 	Vector3 get_position() const;
+	real_t get_distance_to(Node3D *p_target) const;
 
 	EulerOrder get_rotation_order() const;
 	Vector3 get_rotation() const;

@@ -87,6 +87,7 @@ public:
 	void apply_scale(const Size2 &p_amount);
 
 	Point2 get_position() const;
+	real_t get_distance_to(Node2D *p_target) const;
 	real_t get_rotation() const;
 	real_t get_rotation_degrees() const;
 	real_t get_skew() const;

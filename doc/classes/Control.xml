@@ -483,6 +483,14 @@
 				[b]Note:[/b] Setting [member Viewport.gui_snap_controls_to_pixels] to [code]true[/code] can lead to rounding inaccuracies between the displayed control and the returned [Rect2].
 			</description>
 		</method>
+		<method name="get_distance_to" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="target" type="Vector2" />
+			<description>
+				Returns the distance between this [Control] and [param target].
+				Wrapper function for [code]global_position.distance_to(target.global_position)[/code]
+			</description>
+		</method>
 		<method name="get_screen_position" qualifiers="const">
 			<return type="Vector2" />
 			<description>

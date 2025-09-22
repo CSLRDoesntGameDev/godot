@@ -810,6 +810,10 @@ Vector3 Node3D::get_position() const {
 	return data.local_transform.origin;
 }
 
+real_t Node3D::get_distance_to(Node3D *p_target) const {
+	return get_global_transform().get_origin().distance_to(p_target->get_global_transform().get_origin());
+}
+
 Vector3 Node3D::get_rotation() const {
 	ERR_READ_THREAD_GUARD_V(Vector3());
 	if (_test_dirty_bits(DIRTY_EULER_ROTATION_AND_SCALE)) {
@@ -1409,6 +1413,7 @@ void Node3D::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_transform"), &Node3D::get_transform);
 	ClassDB::bind_method(D_METHOD("set_position", "position"), &Node3D::set_position);
 	ClassDB::bind_method(D_METHOD("get_position"), &Node3D::get_position);
+	ClassDB::bind_method(D_METHOD("get_distance_to", "target"), &Node3D::get_distance_to);
 	ClassDB::bind_method(D_METHOD("set_rotation", "euler_radians"), &Node3D::set_rotation);
 	ClassDB::bind_method(D_METHOD("get_rotation"), &Node3D::get_rotation);
 	ClassDB::bind_method(D_METHOD("set_rotation_degrees", "euler_degrees"), &Node3D::set_rotation_degrees);
