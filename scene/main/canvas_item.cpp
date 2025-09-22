@@ -1267,6 +1267,13 @@ Vector2 CanvasItem::get_local_mouse_position() const {
 	return get_global_transform().affine_inverse().xform(get_global_mouse_position());
 }
 
+real_t CanvasItem::get_distance_to(CanvasItem *p_target) const {
+	return get_global_transform().get_origin().distance_to(p_target->get_global_transform().get_origin());
+}
+real_t CanvasItem::get_distance_squared_to(CanvasItem *p_target) const {
+	return get_global_transform().get_origin().distance_squared_to(p_target->get_global_transform().get_origin());
+}
+
 void CanvasItem::force_update_transform() {
 	ERR_THREAD_GUARD;
 	ERR_FAIL_COND(!is_inside_tree());
@@ -1412,6 +1419,8 @@ void CanvasItem::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_canvas_transform"), &CanvasItem::get_canvas_transform);
 	ClassDB::bind_method(D_METHOD("get_screen_transform"), &CanvasItem::get_screen_transform);
 	ClassDB::bind_method(D_METHOD("get_local_mouse_position"), &CanvasItem::get_local_mouse_position);
+	ClassDB::bind_method(D_METHOD("get_distance_to", "target"), &CanvasItem::get_distance_to);
+	ClassDB::bind_method(D_METHOD("get_distance_squared_to", "target"), &CanvasItem::get_distance_squared_to);
 	ClassDB::bind_method(D_METHOD("get_global_mouse_position"), &CanvasItem::get_global_mouse_position);
 	ClassDB::bind_method(D_METHOD("get_canvas"), &CanvasItem::get_canvas);
 	ClassDB::bind_method(D_METHOD("get_canvas_layer_node"), &CanvasItem::get_canvas_layer_node);
