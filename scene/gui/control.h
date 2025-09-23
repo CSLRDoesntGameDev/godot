@@ -519,8 +519,6 @@ public:
 	Point2 get_position() const;
 	Point2 get_global_position() const;
 	Point2 get_screen_position() const;
-	real_t get_distance_to(Control *target) const;
-	real_t get_distance_squared_to(Control *target) const;
 
 	void set_size(const Size2 &p_size, bool p_keep_offsets = false);
 	Size2 get_size() const;

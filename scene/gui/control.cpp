@@ -1471,14 +1471,6 @@ Point2 Control::get_screen_position() const {
 	return get_screen_transform().get_origin();
 }
 
-real_t Control::get_distance_to(Control *target) const {
-	return (get_global_position().distance_to(target->get_global_position()));
-}
-
-real_t Control::get_distance_squared_to(Control *target) const {
-	return (get_global_position().distance_squared_to(target->get_global_position()));
-}
-
 
 void Control::_set_size(const Size2 &p_size) {
 #ifdef DEBUG_ENABLED
