@@ -93,22 +93,6 @@
 				Translates the node by the given [param offset] in local coordinates.
 			</description>
 		</method>
-		<method name="get_distance_to" qualifiers="const">
-			<return type="float" />
-			<param index="0" name="target" type="Node2D" />
-			<description>
-				Returns the distance between this [Node2D] and [param target].
-				Wrapper for [code]global_position.distance_to(target.global_position)[/code]
-			</description>
-		</method>
-		<method name="get_distance_squared_to" qualifiers="const">
-			<return type="float" />
-			<param index="0" name="target" type="Node2D" />
-			<description>
-				Returns the squared distance between this [Node2D] and [param target].
-				Wrapper for [code]global_position.distance_squared_to(target.global_position)[/code]
-			</description>
-		</method>
 	</methods>
 	<members>
 		<member name="global_position" type="Vector2" setter="set_global_position" getter="get_global_position">

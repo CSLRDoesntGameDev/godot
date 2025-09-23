@@ -444,22 +444,6 @@
 				[b]Note:[/b] Setting [member Viewport.gui_snap_controls_to_pixels] to [code]true[/code] can lead to rounding inaccuracies between the displayed control and the returned [Rect2].
 			</description>
 		</method>
-		<method name="get_distance_to" qualifiers="const">
-			<return type="float" />
-			<param index="0" name="target" type="Control" />
-			<description>
-				Returns the distance between this [Control] and [param target].
-				Wrapper for [code]global_position.distance_to(target.global_position)[/code]
-			</description>
-		</method>
-		<method name="get_distance_squared_to" qualifiers="const">
-			<return type="float" />
-			<param index="0" name="target" type="Control" />
-			<description>
-				Returns the squared distance between this [Control] and [param target].
-				Wrapper for [code]global_position.distance_squared_to(target.global_position)[/code]
-			</description>
-		</method>
 		<method name="get_minimum_size" qualifiers="const">
 			<return type="Vector2" />
 			<description>
