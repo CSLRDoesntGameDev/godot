@@ -1471,6 +1471,15 @@ Point2 Control::get_screen_position() const {
 	return get_screen_transform().get_origin();
 }
 
+real_t Control::get_distance_to(Control *target) const {
+	return (get_global_position().distance_to(target->get_global_position()));
+}
+
+real_t Control::get_distance_squared_to(Control *target) const {
+	return (get_global_position().distance_squared_to(target->get_global_position()));
+}
+
+
 void Control::_set_size(const Size2 &p_size) {
 #ifdef DEBUG_ENABLED
 	if (data.size_warning && (data.anchor[SIDE_LEFT] != data.anchor[SIDE_RIGHT] || data.anchor[SIDE_TOP] != data.anchor[SIDE_BOTTOM])) {
@@ -3998,6 +4007,8 @@ void Control::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_screen_position"), &Control::get_screen_position);
 	ClassDB::bind_method(D_METHOD("get_rect"), &Control::get_rect);
 	ClassDB::bind_method(D_METHOD("get_global_rect"), &Control::get_global_rect);
+	ClassDB::bind_method(D_METHOD("get_distance_to", "target"), &Control::get_distance_to);
+	ClassDB::bind_method(D_METHOD("get_distance_squared_to", "target"), &Control::get_distance_squared_to);
 	ClassDB::bind_method(D_METHOD("set_focus_mode", "mode"), &Control::set_focus_mode);
 	ClassDB::bind_method(D_METHOD("get_focus_mode"), &Control::get_focus_mode);
 	ClassDB::bind_method(D_METHOD("get_focus_mode_with_override"), &Control::get_focus_mode_with_override);
