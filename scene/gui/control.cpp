@@ -1471,7 +1471,6 @@ Point2 Control::get_screen_position() const {
 	return get_screen_transform().get_origin();
 }
 
-
 void Control::_set_size(const Size2 &p_size) {
 #ifdef DEBUG_ENABLED
 	if (data.size_warning && (data.anchor[SIDE_LEFT] != data.anchor[SIDE_RIGHT] || data.anchor[SIDE_TOP] != data.anchor[SIDE_BOTTOM])) {
