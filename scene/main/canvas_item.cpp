@@ -1268,9 +1268,13 @@ Vector2 CanvasItem::get_local_mouse_position() const {
 }
 
 real_t CanvasItem::get_distance_to(CanvasItem *p_target) const {
+	ERR_READ_THREAD_GUARD_V(0);
+	ERR_FAIL_NULL_V(p_target, 0);
 	return get_global_transform().get_origin().distance_to(p_target->get_global_transform().get_origin());
 }
 real_t CanvasItem::get_distance_squared_to(CanvasItem *p_target) const {
+	ERR_READ_THREAD_GUARD_V(0);
+	ERR_FAIL_NULL_V(p_target, 0);
 	return get_global_transform().get_origin().distance_squared_to(p_target->get_global_transform().get_origin());
 }
 

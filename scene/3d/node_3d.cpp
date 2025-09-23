@@ -856,10 +856,14 @@ Vector3 Node3D::get_scale() const {
 }
 
 real_t Node3D::get_distance_to(Node3D *p_target) const {
+	ERR_READ_THREAD_GUARD_V(0);
+	ERR_FAIL_NULL_V(p_target, 0);
 	return get_global_position().distance_to(p_target->get_global_position());
 }
 
 real_t Node3D::get_distance_squared_to(Node3D *p_target) const {
+	ERR_READ_THREAD_GUARD_V(0);
+	ERR_FAIL_NULL_V(p_target, 0);
 	return get_global_position().distance_squared_to(p_target->get_global_position());
 }
 
